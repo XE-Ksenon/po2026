@@ -13,7 +13,7 @@ public class Until {
         for (int i = 0; i < 6; i++) {
 
             do {
-                x = random.nextInt(49) + 1;
+                x = random.nextInt(100000) + 1;
             }
             while (list.contains(x));
 
@@ -29,7 +29,7 @@ public class Until {
         for (int i = 0; i < 6; i++) {
 
             do {
-                x = random.nextInt(10000) + 1;
+                x = random.nextInt(100000) + 1;
             }
             while (!list.contains(x));
 
