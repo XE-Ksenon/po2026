@@ -2,17 +2,13 @@ package agh.po.lab2;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Compare {
     public static void main(String[] args) {
         ArrayList<Integer> userList = new ArrayList<>();
 
-        Scanner input = new Scanner(System.in);
-
         for(int i = 0; i < 6; i++){
-            System.out.print("Podaj liczbe: ");
-            userList.add(input.nextInt());
+            userList.add(Integer.valueOf(args[i]));
         }
 
         System.out.println("***** Twoje liczby *****");

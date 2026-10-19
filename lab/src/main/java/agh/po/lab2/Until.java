@@ -5,48 +5,58 @@ import java.util.Random;
 
 public class Until {
     public static void main(String[] args) {
+        ArrayList<Integer> userList = new ArrayList<>();
+
+        for (int i = 0; i < 6; i++) {
+            userList.add(Integer.valueOf(args[i]));
+        }
+
+        System.out.println("***** Twoje liczby *****");
+
+        for (int i = 0; i < 6; i++) {
+            System.out.println(userList.get(i));
+        }
+
         ArrayList<Integer> list = new ArrayList<>();
+        ArrayList<Integer> retainedList = new ArrayList<>();
 
         Random random = new Random();
 
-        int x = 0;
-        for (int i = 0; i < 6; i++) {
+        long before = System.currentTimeMillis();
+
+        int k = 0, x;
+        do {
+            list.clear();
 
             do {
-                x = random.nextInt(100000) + 1;
-            }
-            while (list.contains(x));
+                x = random.nextInt(49) + 1;
 
-            list.add(x);
+                if (!list.contains(x)) {
+                    list.add(x);
+                }
+            }
+            while (list.size() != 6);
+
+
+            retainedList = list;
+            retainedList.retainAll(userList);
+
+            k++;
         }
+        while (retainedList.size() != 6);
+
+
+        System.out.println("***** Wylosowane liczby *****");
 
         for (int i = 0; i < 6; i++) {
             System.out.println(list.get(i));
         }
 
-        long before = System.currentTimeMillis();
-
-        for (int i = 0; i < 6; i++) {
-
-            do {
-                x = random.nextInt(100000) + 1;
-            }
-            while (!list.contains(x));
-
-            list.remove(Integer.valueOf(x));
-
-            System.out.println("\n");
-            System.out.println("***** Trafiono *****");
-            System.out.println(x);
-            System.out.println("***** Pozostało *****");
-            for (int j = 0; j < list.size(); j++) {
-                System.out.println(list.get(j));
-            }
-        }
-
         long after = System.currentTimeMillis();
 
         System.out.println("\n");
+        System.out.println("***** Losowano [razy] *****");
+        System.out.println(k);
         System.out.println("***** Czas [ms] *****");
         System.out.println(after - before);
     }
