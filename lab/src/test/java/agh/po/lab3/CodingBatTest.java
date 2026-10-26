@@ -15,24 +15,24 @@ public class CodingBatTest {
     @org.junit.Test
     public void diff21() {
         CodingBat codingBat = new CodingBat();
-        assertEquals(codingBat.diff21(19), 2);
-        assertEquals(codingBat.diff21(10), 11);
-        assertEquals(codingBat.diff21(50), 58);
+        assertEquals(2, codingBat.diff21(19));
+        assertEquals(11, codingBat.diff21(10));
+        assertEquals(58, codingBat.diff21(50));
     }
 
     @org.junit.Test
     public void countEvens() {
         CodingBat codingBat = new CodingBat();
-        assertEquals(codingBat.countEvens(new int[]{1, 2, 3, 4, 5}), 2);
-        assertEquals(codingBat.countEvens(new int[]{2, 100, 8}), 3);
-        assertEquals(codingBat.countEvens(new int[]{3, 5, 9, 13}), 0);
+        assertEquals(2, codingBat.countEvens(new int[]{1, 2, 3, 4, 5}));
+        assertEquals(3, codingBat.countEvens(new int[]{2, 100, 8}));
+        assertEquals(0, codingBat.countEvens(new int[]{3, 5, 9, 13}));
     }
 
     @org.junit.Test
     public void helloName() {
         CodingBat codingBat = new CodingBat();
-        assertEquals(codingBat.helloName("Bob"),"Hello Bob!");
-        assertEquals(codingBat.helloName("Alice"),"Hello Alice!");
-        assertEquals(codingBat.helloName("X"),"Hello X!");
+        assertEquals("Hello Bob!", codingBat.helloName("Bob"));
+        assertEquals("Hello Alice!", codingBat.helloName("Alice"));
+        assertEquals("Hello X!", codingBat.helloName("X"));
     }
 }
