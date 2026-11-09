@@ -1,36 +1,10 @@
 package agh.po.lab3;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class CodingBat {
-    public static void main(String[] args) {
-        CodingBat codingBat = new CodingBat();
-
-        if (codingBat.sleepIn(true, true)) {
-            System.out.println("OK");
-        } else {
-            System.out.println("NOT OK");
-        }
-
-        if (codingBat.diff21(58) == 74) {
-            System.out.println("OK");
-        } else {
-            System.out.println("NOT OK");
-        }
-
-        if (codingBat.countEvens(new int[]{1, 2, 3, 4, 5}) == 2) {
-            System.out.println("OK");
-        } else {
-            System.out.println("NOT OK");
-        }
-
-        if (Objects.equals(codingBat.helloName("Mati"), "Hello Mati!")) {
-            System.out.println("OK");
-        } else {
-            System.out.println("NOT OK");
-        }
-    }
-
     public boolean sleepIn(boolean weekday, boolean vacation) {
         return vacation || !weekday;
     }
@@ -57,5 +31,22 @@ public class CodingBat {
 
     public String helloName(String name) {
         return "Hello " + name + "!";
+    }
+
+    public Map<String, String> mapAB(Map<String, String> map) {
+        if (map.containsKey("a") && map.containsKey("b")) {
+            String valA = map.get("a");
+            String valB = map.get("b");
+            map.put("ab", valA + valB);
+        }
+        return map;
+    }
+
+    public Map<String, Integer> wordLen(String[] strings) {
+        Map<String, Integer> map = new HashMap<String, Integer>();
+        for (String s : strings) {
+            map.put(s, s.length());
+        }
+        return map;
     }
 }

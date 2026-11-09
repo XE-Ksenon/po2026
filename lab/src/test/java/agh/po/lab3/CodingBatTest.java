@@ -1,5 +1,8 @@
 package agh.po.lab3;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.junit.Assert.*;
 
 public class CodingBatTest {
@@ -34,5 +37,23 @@ public class CodingBatTest {
         assertEquals("Hello Bob!", codingBat.helloName("Bob"));
         assertEquals("Hello Alice!", codingBat.helloName("Alice"));
         assertEquals("Hello X!", codingBat.helloName("X"));
+    }
+
+    @org.junit.Test
+    public void mapAB() {
+        CodingBat codingBat = new CodingBat();
+
+        assertEquals(Map.of("a", "Hi", "ab", "HiThere", "b", "There"), codingBat.mapAB(new HashMap<>(Map.of("a", "Hi", "b", "There"))));
+        assertEquals(Map.of("a", "Hi"), codingBat.mapAB(new HashMap<>(Map.of("a", "Hi"))));
+        assertEquals(Map.of("b", "There"), codingBat.mapAB(new HashMap<>(Map.of("b", "There"))));
+    }
+
+    @org.junit.Test
+    public void wordLen() {
+        CodingBat codingBat = new CodingBat();
+
+        assertEquals(Map.of("bb", 2, "a", 1), codingBat.wordLen(new String[] {"a", "bb", "a", "bb"}));
+        assertEquals(Map.of("that", 4, "and", 3, "this", 4), codingBat.wordLen(new String[] {"this", "and", "that", "and"}));
+        assertEquals(Map.of("code", 4, "bug", 3), codingBat.wordLen(new String[] {"code", "code", "code", "bug"}));
     }
 }
